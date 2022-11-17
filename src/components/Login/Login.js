@@ -1,21 +1,21 @@
-import React,{useEffect} from 'react'
+import React, { useEffect } from 'react'
 import './styles.css'
 import GoogleIcon from '@mui/icons-material/Google';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import GitHubIcon from '@mui/icons-material/GitHub';
-import {signInWithGoogle} from '../../firebase'
-import {UserContext} from '../../UserProvider'
-import {useNavigate} from 'react-router-dom'
+import { signInWithGoogle, signInWithGithub, signInWithFacebook } from '../../firebase'
+import { UserContext } from '../../UserProvider'
+import { useNavigate } from 'react-router-dom'
 
 const Login = () => {
     const user = React.useContext(UserContext)
     const navigate = useNavigate()
     useEffect(() => {
-        if(user) {
+        if (user) {
             navigate('/')
         }
     }, [user])
-    
+
     return (
         <div className='container'>
             {/* form with email password google facebook github */}
@@ -26,7 +26,7 @@ const Login = () => {
                 <div className='divider'></div>
                 <div className='buttons'>
                     <button className='google button'
-                    onClick={signInWithGoogle}
+                        onClick={signInWithGoogle}
                     >
                         <div className='icon'>
                             <GoogleIcon fontSize="large" />
@@ -36,7 +36,9 @@ const Login = () => {
                             Continue with Google
                         </div>
                     </button>
-                    <button className='facebook button'>
+                    <button className='facebook button'
+                        onClick={signInWithFacebook}
+                    >
                         <div className='icon'>
                             <FacebookIcon fontSize="large" />
                         </div>
@@ -45,7 +47,9 @@ const Login = () => {
                             Continue with Facebook
                         </div>
                     </button>
-                    <button className='github button'>
+                    <button className='github button'
+                        onClick={signInWithGithub}
+                    >
                         <div className='icon'>
                             <GitHubIcon fontSize="large" />
                         </div>

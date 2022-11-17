@@ -20,7 +20,27 @@ const googleProvider = new firebase.auth.GoogleAuthProvider()
 export const signInWithGoogle = () => {
   auth.signInWithPopup(googleProvider).then((res) => {
     // user object
-    console.log(res.user.email)
+    // console.log(res.user)
+  }).catch((error) => {
+    console.log(error.message)
+  })
+}
+// signinwithgithub
+const githubProvider = new firebase.auth.GithubAuthProvider()
+export const signInWithGithub = () => {
+  auth.signInWithPopup(githubProvider).then((res) => {
+    // user object
+    console.log(res.user)
+  }).catch((error) => {
+    console.log(error.message)
+  })
+}
+// signinwithfacebook
+const facebookProvider = new firebase.auth.FacebookAuthProvider()
+export const signInWithFacebook = () => {
+  auth.signInWithPopup(facebookProvider).then((res) => {
+    // user object
+    console.log(res.user)
   }).catch((error) => {
     console.log(error.message)
   })

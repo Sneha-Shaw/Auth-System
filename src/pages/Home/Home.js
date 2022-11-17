@@ -25,7 +25,6 @@ const Home = () => {
         <div className='user'>
           <h2>Welcome, <span className='name'>{user.displayName}</span>
           </h2>
-          <img src={user.photoUrl} alt=""/>
           <button
             onClick={handleLogout}
           >Logout</button>

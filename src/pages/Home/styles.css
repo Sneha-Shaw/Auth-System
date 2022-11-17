@@ -31,6 +31,6 @@ span{
     width: 10%;
 }
 
-.guest>button:hover{
+.user>button:hover, .guest>button:hover{
     background-color: #000;
 }

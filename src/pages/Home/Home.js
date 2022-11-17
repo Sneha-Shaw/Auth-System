@@ -1,21 +1,28 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './styles.css'
 import { useNavigate } from 'react-router-dom'
+import { UserContext } from '../../UserProvider'
+import {logOut} from '../../firebase'
 
 const Home = () => {
   // check user data 
   // if user is logged in, show user data
   // if user is not logged in, show login/register buttons
-  const user = null
+  const user = useContext(UserContext)
   const navigate = useNavigate()
+  
+
   return (
     <div className='container'>
       {user ? (
         <div className='user'>
           {/* <h1>Home</h1> */}
-          <h2>Welcome <span className='name'>{user.name},</span>
+          <h2>Welcome, <span className='name'>{user.displayName}</span>
             {/* {user.name} */}
           </h2>
+          <button
+            onClick={logOut}
+          >Logout</button>
         </div>
       ) : (
         <div className='guest'>

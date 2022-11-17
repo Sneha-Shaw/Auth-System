@@ -3,8 +3,10 @@ import './styles.css'
 import GoogleIcon from '@mui/icons-material/Google';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import GitHubIcon from '@mui/icons-material/GitHub';
+import {signInWithGoogle} from '../../firebase'
 
 const Login = () => {
+
     return (
         <div className='container'>
             {/* form with email password google facebook github */}
@@ -14,7 +16,9 @@ const Login = () => {
                 </h2>
                 <div className='divider'></div>
                 <div className='buttons'>
-                    <button className='google button'>
+                    <button className='google button'
+                    onClick={signInWithGoogle}
+                    >
                         <div className='icon'>
                             <GoogleIcon fontSize="large" />
                         </div>

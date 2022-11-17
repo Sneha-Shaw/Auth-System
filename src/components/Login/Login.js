@@ -1,12 +1,21 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import './styles.css'
 import GoogleIcon from '@mui/icons-material/Google';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import {signInWithGoogle} from '../../firebase'
+import {UserContext} from '../../UserProvider'
+import {useNavigate} from 'react-router-dom'
 
 const Login = () => {
-
+    const user = React.useContext(UserContext)
+    const navigate = useNavigate()
+    useEffect(() => {
+        if(user) {
+            navigate('/')
+        }
+    }, [user])
+    
     return (
         <div className='container'>
             {/* form with email password google facebook github */}

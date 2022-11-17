@@ -1,8 +1,8 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import './styles.css'
 import { useNavigate } from 'react-router-dom'
 import { UserContext } from '../../UserProvider'
-import {logOut} from '../../firebase'
+import { logOut } from '../../firebase'
 
 const Home = () => {
   // check user data 
@@ -10,8 +10,15 @@ const Home = () => {
   // if user is not logged in, show login/register buttons
   const user = useContext(UserContext)
   const navigate = useNavigate()
-  
 
+ const handleLogout = async () => {
+    try {
+      await logOut()
+      window.location.reload()
+    } catch (error) {
+      console.log(error)
+    }
+  }
   return (
     <div className='container'>
       {user ? (
@@ -19,7 +26,7 @@ const Home = () => {
           <h2>Welcome, <span className='name'>{user.displayName}</span>
           </h2>
           <button
-            onClick={logOut}
+            onClick={handleLogout}
           >Logout</button>
         </div>
       ) : (

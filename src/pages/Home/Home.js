@@ -14,21 +14,18 @@ const Home = () => {
         <div className='user'>
           {/* <h1>Home</h1> */}
           <h2>Welcome <span className='name'>{user.name},</span>
-             {/* {user.name} */}
-             </h2>
-          </div>
+            {/* {user.name} */}
+          </h2>
+        </div>
       ) : (
         <div className='guest'>
           {/* <h1>Home</h1> */}
           <h2>Welcome <span className='name'>Guest,</span>
-            </h2>
+          </h2>
           <button
             onClick={() => navigate('/login')}
           >Login</button>
-          <button
-            onClick={() => navigate('/register')}
-          >Register</button>
-          </div>
+        </div>
       )}
     </div>
   )

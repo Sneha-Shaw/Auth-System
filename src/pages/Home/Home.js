@@ -16,9 +16,7 @@ const Home = () => {
     <div className='container'>
       {user ? (
         <div className='user'>
-          {/* <h1>Home</h1> */}
           <h2>Welcome, <span className='name'>{user.displayName}</span>
-            {/* {user.name} */}
           </h2>
           <button
             onClick={logOut}
@@ -26,7 +24,6 @@ const Home = () => {
         </div>
       ) : (
         <div className='guest'>
-          {/* <h1>Home</h1> */}
           <h2>Welcome <span className='name'>Guest,</span>
           </h2>
           <button
